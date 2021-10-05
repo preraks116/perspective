@@ -10,7 +10,6 @@ function setup(){
 let t = 0;
 let j = 0;
 function draw(){
-  canvas = createCanvas(windowWidth,windowHeight);
   background(0);
   translate(width/2,height/2);
   // stroke('#fff');
