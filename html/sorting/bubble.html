@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/post.css">
     <link rel="stylesheet" type="text/css" href="../../css/hamburger.css">
+    <link rel="stylesheet" type="text/css" href="../../css/prism.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -142,25 +143,22 @@
             </div>
             <div class="post-code-content">
                 <div class="code-block">
-                    <pre>
-                        <code>
-# Creating a bubble sort function  
-def bubble_sort(list1):  
-    # Outer loop for traverse the entire list  
-    for i in range(0,len(list1)-1):  
-        for j in range(len(list1)-1):  
-            if(list1[j]>list1[j+1]):  
-                temp = list1[j]  
-                list1[j] = list1[j+1]  
-                list1[j+1] = temp  
-    return list1  
+                    <pre><code id="code" class="language-python">
+    # Creating a bubble sort function  
+    def bubble_sort(list1):  
+        # Outer loop for traverse the entire list  
+        for i in range(0,len(list1)-1):  
+            for j in range(len(list1)-1):  
+                if(list1[j]>list1[j+1]):  
+                    temp = list1[j]  
+                    list1[j] = list1[j+1]  
+                    list1[j+1] = temp  
+        return list1  
 
-list1 = [5, 3, 8, 6, 7, 2]  
-print("The unsorted list is: ", list1)  
-# Calling the bubble sort function  
-print("The sorted list is: ", bubble_sort(list1))  
-                        </code>
-                    </pre>
+    list1 = [5, 3, 8, 6, 7, 2]  
+    print("The unsorted list is: ", list1)  
+    # Calling the bubble sort function  
+    print("The sorted list is: ", bubble_sort(list1))</code></pre>
                 </div>
             </div>
         </div>
@@ -210,7 +208,7 @@ print("The sorted list is: ", bubble_sort(list1))
             </div>
         </div>
     </div>
-                        
+    <script src="../../js/prism.js"></script>
 </body>
 
 </html>

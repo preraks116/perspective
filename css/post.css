@@ -26,12 +26,20 @@
     color: rgb(255, 255, 255);
 }
 
+.post-code-content{
+    width: 45%;
+    padding: 10px;
+    background-color: rgb(31,32,34);
+    border-radius: 10px;
+}
+
 .post-code h3{
     color: rgb(12,33,133);
     font-weight: bold;
 }
 
 .post-resources h3{
+    padding-top: 20px;
     color: rgb(12,33,133);
     font-weight: bold;
 }
