@@ -8,64 +8,209 @@
     <title>Perspective</title>
 
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/post.css">
+    <link rel="stylesheet" type="text/css" href="../../css/hamburger.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script> -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/templatemo-xtra-blog.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
 </head>
 
 <body style="background-color: black;">
-    <div class="container-fluid">
-        <main class="tm-main">
-            <h1>Hi</h1>
-            <!-- Search form -->
-            <div class="row tm-row">
-                <div class="col-12">
-                    <hr class="tm-hr-primary tm-mb-55">
-                    <!-- Video player 1422x800 -->
-                    <video width="954" height="535" controls class="tm-mb-40">
-                        <source src="video/wheat-field.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-            <div class="row tm-row">
-                <div class="col-lg-8 tm-post-col">
-                    <div class="tm-post-full">
-                        <div class="mb-4">
-                            <h2 class="pt-2 tm-color-primary tm-post-title">Single Post of Xtra Blog HTML Template</h2>
-                            <p class="tm-mb-40">June 16, 2020 posted by Admin Nat</p>
-                            <p>
-                                This is a description of the video post. You can also have an image instead of
-                                the video. You can free download
-                                <a rel="nofollow" href="https://templatemo.com/tm-553-xtra-blog" target="_blank">Xtra
-                                    Blog Template</a>
-                                from TemplateMo website. Phasellus maximus quis est sit amet maximus. Vestibulum vel
-                                rutrum
-                                lorem, ac sodales augue. Aliquam erat volutpat. Duis lectus orci, blandit in arcu
-                                est, elementum tincidunt lectus. Praesent vel justo tempor, varius lacus a,
-                                pharetra lacus.
-                            </p>
-                            <p>
-                                Duis pretium efficitur nunc. Mauris vehicula nibh nisi. Curabitur gravida neque
-                                dignissim, aliquet nulla sed, condimentum nulla. Pellentesque id venenatis
-                                quam, id cursus velit. Fusce semper tortor ac metus iaculis varius. Praesent
-                                aliquam ex vel lectus ornare tristique. Nunc et eros quis enim feugiat tincidunt
-                                et vitae dui.
-                            </p>
-                            <span class="d-block text-right tm-color-primary">Creative . Design . Business</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <a href="../../index.html">
+                    <li><i class="bi bi-eye"></i> Home</li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-bar-chart"></i> Sorting
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-diagram-3"></i> Dynamic Programming
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-columns-gap"></i> Divide and Conquer
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-bounding-box-circles"></i> Graph Theory
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#"> 
+                    <li>
+                        <i class="bi bi-puzzle"></i> Miscellaneous
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <div class="post-heading">
+        <h2>Sorting</h2>
+        <h1>Bubble Sort</h1>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/templatemo-script.js"></script>
+    <div class="container post-content">
+        <div class="post-text">
+            <p>
+                Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps
+                through the list, compares adjacent elements and swaps them if they are in the wrong order. The
+                pass through the list is repeated until the list is sorted. The algorithm, which is a comparison
+                sort, is named for the way smaller or larger elements "bubble" to the top of the list.
+            </p>
+            <p>
+                Bubble sort is a comparison sort, meaning that it can sort items of any type for which a
+                <a href="https://en.wikipedia.org/wiki/Order_relation">total order</a>
+                is defined.
+            </p>
+            <p>
+                The algorithm consists of two phases: the <i>sorting</i> phase and the <i>checking</i> phase. The
+                sorting phase moves through the list looking for adjacent pairs of items that are out of order, and
+                swaps them. The checking phase compares each pair of items to make sure they are in the correct order.
+            </p>
+            <p>
+                The algorithm is a simple and intuitive to understand. It works by repeatedly stepping through the
+                list, comparing adjacent items and swapping them if they are in the wrong order.
+            </p>
+            <p>
+                The algorithm is not efficient for large lists. It is generally only efficient for lists where the
+                number of items is much smaller than the number of passes through the list.
+            </p>
+            <p>
+                The algorithm is not stable; two items may be swapped when they are compared.
+            </p>
+            <p>
+                The algorithm is not adaptive; it does not consider whether the list is already sorted.
+            </p>
+            <p>
+                The algorithm is not in-place; it requires extra space for the temporary storage of the swapped
+                items.
+            </p>    
+        </div>
+        <div class="post-code">
+            <div class="post-code-heading">
+                <h3><i class="bi bi-code-slash"></i> Code</h3>
+            </div>
+            <div class="post-code-content">
+                <div class="code-block">
+                    <pre>
+                        <code>
+# Creating a bubble sort function  
+def bubble_sort(list1):  
+    # Outer loop for traverse the entire list  
+    for i in range(0,len(list1)-1):  
+        for j in range(len(list1)-1):  
+            if(list1[j]>list1[j+1]):  
+                temp = list1[j]  
+                list1[j] = list1[j+1]  
+                list1[j+1] = temp  
+    return list1  
+
+list1 = [5, 3, 8, 6, 7, 2]  
+print("The unsorted list is: ", list1)  
+# Calling the bubble sort function  
+print("The sorted list is: ", bubble_sort(list1))  
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <div class="post-resources">
+            <div class="post-resources-heading">
+                <h3><i class="bi bi-file-earmark-code"></i> Resources</h3>
+            </div>
+            <div class="post-resources-content">
+                <ul>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Bubble_sort">
+                            <i class="bi bi-link-external"></i> Wikipedia
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/bubble-sort/">
+                            <i class="bi bi-link-external"></i> GeeksforGeeks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm">
+                            <i class="bi bi-link-external"></i> Tutorials Point
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-set-1-introduction-and-advance/">
+                            <i class="bi bi-link-external"></i> GeeksforGeeks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-2/">
+                            <i class="bi bi-link-external"></i> GeeksforGeeks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-3/">
+                            <i class="bi bi-link-external"></i> GeeksforGeeks
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-4/">
+                            <i class="bi bi-link-external"></i> GeeksforGeeks
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+                        
 </body>
 
 </html>

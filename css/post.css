@@ -1,0 +1,37 @@
+.post-heading h1{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-family: 'Courier New';
+    color: rgb(12,33,133); /*white text*/
+    font-weight: bold;
+    font-size: 4em;
+}
+
+.post-heading h2{
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-family: 'Courier New';
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.post-content{
+    padding-top: 160px;
+    font-family: 'Courier New';
+    color: rgb(255, 255, 255);
+}
+
+.post-code h3{
+    color: rgb(12,33,133);
+    font-weight: bold;
+}
+
+.post-resources h3{
+    color: rgb(12,33,133);
+    font-weight: bold;
+}
