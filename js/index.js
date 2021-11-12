@@ -15,10 +15,10 @@ function draw(){
   // stroke('#fff');
   // strokeWeight(2.5);
   //loop for adding 100 lines
+  strokeWeight(5);
   stroke(12,23,133);
   for(let i = 0;i<69;i++){
     line(x1(t+i*2),y1(t+i*2),x2(t+i)+20,y2(t+i*3)+20);
-    strokeWeight(i/15);
   }
   t+=0.15;
 }
