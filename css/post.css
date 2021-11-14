@@ -26,6 +26,11 @@
     color: rgb(255, 255, 255);
 }
 
+.post-content h3{
+    color: rgb(12,33,133);
+    font-weight: bold;
+}
+
 .post-code-content{
     width: 45%;
     padding: 10px;
