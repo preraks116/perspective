@@ -43,3 +43,42 @@
     color: rgb(12,33,133);
     font-weight: bold;
 }
+
+.frame{
+    border:1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 150px;
+    margin-bottom: -80px;
+}
+
+.reset-button{
+position: absolute;
+top: 50%;
+left: 50%;
+font-family: 'Courier New';
+padding-top: 20px;
+color: rgb(255, 255, 255);
+font-weight: bold
+}
+
+button{
+width: 200px;
+font-size: larger;
+padding: 15px 0 ;
+text-align: center;
+margin: 20px 10px;
+font-weight: bold;
+border: transparent;
+border: 1px solid rgb(182, 177, 177);
+background: transparent;
+color: rgb(255, 255, 255);
+cursor: pointer;
+transition: 0.5s;
+}
+
+button:hover{
+background-color: white;
+color: rgb(0, 0, 0);
+}
