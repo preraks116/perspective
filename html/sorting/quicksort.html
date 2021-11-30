@@ -97,11 +97,11 @@
         </div>
     </nav>
     <div class="post-heading">
-        <h2>Sorting</h2>
-        <h1>Bubble Sort</h1>
+        <h2>Divide and Conquer</h2>
+        <h1>Quick Sort</h1>
     </div>
     <div class="container frame">
-        <iframe src="./bubblesim.html" width="720px" height="406" id="frame"></iframe>
+        <iframe src="./quicksim.html" width="720px" height="408" id="frame" style="overflow-y: hidden;"></iframe>
     </div>
     <div>
         <a><button class="reset-button" id="reset-button" style="transform: translate(-50%, 200%);">Reset</button></a>
@@ -113,11 +113,22 @@
             </div>
             <div class="post-sim-content">
                 <p>
-                    The bubble sort algorithm is a simple sorting algorithm that works the way we sort playing cards in our hands.
-                    You imagine a row of n cards where the ith card is showing the number i. You take the top card and place it in the
-                    correct position by swapping it with the card immediately above it. You then take the second card and place it in the
-                    correct position by swapping it with the card immediately above it. You continue this process until you have
-                    sorted the entire row.
+                    <strong>Quick Sort</strong> is a divide and conquer algorithm. It picks an element as pivot and
+                    partitions the given array around the picked pivot. There are many different versions of quick sort.
+                    Most of the times, it picks the first element as pivot, but there are many other possibilities.
+                    <br>
+                    <br>
+                    <strong>Worst Case Time Complexity</strong> of Quick Sort is <strong>O(n^2)</strong>.
+                    <br>
+                    <br>
+                    <strong>Average Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong>.
+                    <br>
+                    <br>
+                    <strong>Best Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong>.
+                    <br>
+                    <br>
+                    <strong>Space Complexity</strong> of Quick Sort is <strong>O(1)</strong>.
+                    <br>
                 </p>
             </div>
         </div>
@@ -125,40 +136,32 @@
             <div class="post-text-heading">
                 <h3><i class="bi bi-info-circle"></i> Explanation</h3>
             </div>
-            <p>
-                Bubble sort, sometimes referred to as sinking sort, is a simple sorting algorithm that repeatedly steps
-                through the list, compares adjacent elements and swaps them if they are in the wrong order. The
-                pass through the list is repeated until the list is sorted. The algorithm, which is a comparison
-                sort, is named for the way smaller or larger elements "bubble" to the top of the list.
-            </p>
-            <p>
-                Bubble sort is a comparison sort, meaning that it can sort items of any type for which a
-                <a href="https://en.wikipedia.org/wiki/Order_relation">total order</a>
-                is defined.
-            </p>
-            <p>
-                The algorithm consists of two phases: the <i>sorting</i> phase and the <i>checking</i> phase. The
-                sorting phase moves through the list looking for adjacent pairs of items that are out of order, and
-                swaps them. The checking phase compares each pair of items to make sure they are in the correct order.
-            </p>
-            <p>
-                The algorithm is a simple and intuitive to understand. It works by repeatedly stepping through the
-                list, comparing adjacent items and swapping them if they are in the wrong order.
-            </p>
-            <p>
-                The algorithm is not efficient for large lists. It is generally only efficient for lists where the
-                number of items is much smaller than the number of passes through the list.
-            </p>
-            <p>
-                The algorithm is not stable; two items may be swapped when they are compared.
-            </p>
-            <p>
-                The algorithm is not adaptive; it does not consider whether the list is already sorted.
-            </p>
-            <p>
-                The algorithm is not in-place; it requires extra space for the temporary storage of the swapped
-                items.
-            </p>    
+            <div class="post-text-content">
+                <p>
+                    In computer science, quick sort (sometimes called partition-exchange sort) is an efficient sorting algorithm,
+                    serving as a systematic method for placing the elements of an array in order. Developed by Tony Hoare in 1959,
+                    with his work published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it
+                    is about twice as fast as its main competitors, merge sort and heapsort.
+                </p>
+                <p>
+                    It works by choosing a pivot element (called the <i>pivot</i>), and then rearranging the elements of the array
+                    in such a way that all elements less than the pivot come before it, while all elements greater than the
+                    pivot come after it. This is repeated with the sub-arrays of elements less than and greater than the
+                    pivot. The implementation of quick sort is not recursive, but rather uses a divide and conquer strategy.
+                </p>
+                <p>
+                    The algorithm can be summarized as follows:
+                </p>
+                <ul>
+                    <li>Choose a pivot element</li>
+                    <li>Reorder the elements in the array so that all elements less than the pivot come before it, and all elements
+                        greater than the pivot come after it</li>
+                    <li>Recursively apply the above steps to the sub-arrays of elements less than and greater than the pivot</li>
+                </ul>
+                <p>
+                    <i>The implementation of quick sort is not recursive, but rather uses a divide and conquer strategy.</i>
+                </p>
+                
         </div>
         <div class="post-code">
             <div class="post-code-heading">
@@ -167,21 +170,64 @@
             <div class="post-code-content">
                 <div class="code-block">
                     <pre><code id="code" class="language-python">
-    # Creating a bubble sort function  
-    def bubble_sort(list1):  
-        # Outer loop for traverse the entire list  
-        for i in range(0,len(list1)-1):  
-            for j in range(len(list1)-1):  
-                if(list1[j]>list1[j+1]):  
-                    temp = list1[j]  
-                    list1[j] = list1[j+1]  
-                    list1[j+1] = temp  
-        return list1  
+# Python program for implementation of Quicksort Sort
 
-    list1 = [5, 3, 8, 6, 7, 2]  
-    print("The unsorted list is: ", list1)  
-    # Calling the bubble sort function  
-    print("The sorted list is: ", bubble_sort(list1))</code></pre>
+# This function takes last element as pivot, places
+# the pivot element at its correct position in sorted
+# array, and places all smaller (smaller than pivot)
+# to left of pivot and all greater elements to right
+# of pivot
+    
+    
+def partition(arr, low, high):
+    i = (low-1)         # index of smaller element
+    pivot = arr[high]     # pivot
+    
+    for j in range(low, high):
+    
+        # If current element is smaller than or
+        # equal to pivot
+        if arr[j] <= pivot:
+    
+            # increment index of smaller element
+            i = i+1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+    return (i+1)
+    
+# The main function that implements QuickSort
+# arr[] --> Array to be sorted,
+# low  --> Starting index,
+# high  --> Ending index
+    
+# Function to do Quick sort
+    
+    
+def quickSort(arr, low, high):
+    if len(arr) == 1:
+        return arr
+    if low < high:
+    
+        # pi is partitioning index, arr[p] is now
+        # at right place
+        pi = partition(arr, low, high)
+    
+        # Separately sort elements before
+        # partition and after partition
+        quickSort(arr, low, pi-1)
+        quickSort(arr, pi+1, high)
+    
+    
+# Driver code to test above
+arr = [10, 7, 8, 9, 1, 5]
+n = len(arr)
+quickSort(arr, 0, n-1)
+print("Sorted array is:")
+for i in range(n):
+    print("%d" % arr[i]),
+
+                    </code></pre>
                 </div>
             </div>
         </div>
@@ -191,43 +237,9 @@
             </div>
             <div class="post-resources-content">
                 <ul>
-                    <li>
-                        <a href="https://en.wikipedia.org/wiki/Bubble_sort">
-                            <i class="bi bi-link-external"></i> Wikipedia
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.geeksforgeeks.org/bubble-sort/">
-                            <i class="bi bi-link-external"></i> GeeksforGeeks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.tutorialspoint.com/data_structures_algorithms/bubble_sort_algorithm.htm">
-                            <i class="bi bi-link-external"></i> Tutorials Point
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-set-1-introduction-and-advance/">
-                            <i class="bi bi-link-external"></i> GeeksforGeeks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-2/">
-                            <i class="bi bi-link-external"></i> GeeksforGeeks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-3/">
-                            <i class="bi bi-link-external"></i> GeeksforGeeks
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.geeksforgeeks.org/bubble-sort-algorithm-4/">
-                            <i class="bi bi-link-external"></i> GeeksforGeeks
-                        </a>
-                    </li>
-
-                </ul>
+                    <li><a href="https://www.geeksforgeeks.org/merge-sort/">GeeksForGeeks</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/merge-sort-set-1/">Merge Sort - Set 1</a></li>
+                    <li><a href="https://www.geeksforgeeks.org/merge-sort-set-2-a-nlogn-time-complexity/">Merge Sort - Set 2 (NLogN Time Complexity)</a></li>
             </div>
         </div>
     </div>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perspective</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../../css/post.css">
+    <link rel="stylesheet" type="text/css" href="../../css/hamburger.css">
+    <link rel="stylesheet" type="text/css" href="../../css/prism.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+</head>
+
+<body style="background-color: black;">
+    <nav role="navigation">
+        <div id="menuToggle">
+            <input type="checkbox"/>
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <a href="../../index.html">
+                    <li><i class="bi bi-eye"></i> Home</li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-bar-chart"></i> Sorting
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/quicksort.html">
+                                <li>Quick Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-diagram-3"></i> Dynamic Programming
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-columns-gap"></i> Divide and Conquer
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#">
+                    <li>
+                        <i class="bi bi-bounding-box-circles"></i> Graph Theory
+                        <ul>
+                            <a href="../sorting/bubble.html">
+                                <li>Bubble Sort</li>
+                            </a>
+                            <a href="../sorting/merge.html">
+                                <li>Merge Sort</li>
+                            </a>
+                            </a>
+                        </ul>
+                    </li>
+                </a>
+                <a href="#"> 
+                    <li>
+                        <i class="bi bi-puzzle"></i> Miscellaneous
+                    </li>
+                </a>
+            </ul>
+        </div>
+    </nav>
+    <div class="post-heading">
+        <h2>Graph Theory</h2>
+        <h1>Dijkstra Algorithm</h1>
+    </div>
+    <div class="container frame">
+        <iframe src="./dijkstrasim.html" width="720px" height="406" id="frame"></iframe>
+    </div>
+    <div>
+        <a><button class="reset-button" id="reset-button" style="transform: translate(-50%, 200%);">Reset</button></a>
+      </div>
+    <div class="container post-content">
+        <div class="post-sim">
+            <div class="post-sim-heading">
+                <h3><i class="bi bi-cpu"></i> Simulation</h3>
+            </div>
+            <div class="post-sim-content">
+                <div class="post-sim-content-text">
+                    <p>
+                        Here we can see that that there are 10 nodes in this graph connected by edges. The numbers written on the edges are called the weights of the edges. 
+                        The algorithm will start at the node with the lowest weight and will move to the next node with the lowest weight. The algorithm will continue until it reaches the end node.
+                        The algorithm will always choose the edge with the lowest weight. The blue that is drawn on the edges is the shortest path and the numbers on each node are the distance of those nodes from the start node.
+                    </p>
+            </div>
+        </div>
+        <div class="post-text">
+            <div class="post-text-heading">
+                <h3><i class="bi bi-info-circle"></i> Explanation</h3>
+            </div>
+            <div class="post-text-content">
+                <p>
+                    The Dijkstra algorithm is a greedy algorithm that finds the shortest path between two nodes in a graph.
+                    It is used to find the shortest path between two nodes in a graph.
+                    The algorithm is as follows:
+                </p>
+                <ol>
+                    <li>
+                        <p>
+                            Initialize the distance of all the nodes to infinity.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Set the distance of the start node to 0.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Add the start node to the set of visited nodes.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            While the set of visited nodes is not empty:
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Select the unvisited node that is closest to the start node.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Add the selected node to the set of visited nodes.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    For each unvisited neighbor of the selected node:
+                                </p>
+                                <ol>
+                                    <li>
+                                        <p>
+                                            If the distance of the neighbor is greater than the distance of the selected node plus the weight of the edge from the selected node to the neighbor:
+                                        </p>
+                                        <ol>
+                                            <li>
+                                                <p>
+                                                    Set the distance of the neighbor to the distance of the selected node plus the weight of the edge from the selected node to the neighbor.
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <p>
+                                                    Set the predecessor of the neighbor to the selected node.
+                                                </p>
+                                            </li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                        </ol>
+
+                </ol>
+        </div>
+        <div class="post-text">
+            <div class="post-text-heading">
+                <h3><i class="bi bi-clock"></i> Time Complexity</h3>
+            </div>
+            <div class="time-complexity-content">
+                <p>
+                    The time complexity of the Dijkstra algorithm is <b>O(VlogV + ElogE)</b><br>
+                    The <b>V</b> is the number of vertices and E is the number of edges. <br>
+                    The <b>logV</b> is because the algorithm will always choose the edge with the lowest weight. <br>
+                    The <b>ElogE</b> is because the algorithm will always choose the edge with the lowest weight. <br>
+                </p>
+            </div>
+        </div>
+        <div class="post-code">
+            <div class="post-code-heading">
+                <h3><i class="bi bi-code-slash"></i> Code</h3>
+            </div>
+            <div class="post-code-content">
+                <div class="code-block">
+                    <pre><code id="code" class="language-python">
+import sys
+
+# Function to find out which of the unvisited node 
+# needs to be visited next
+def to_be_visited():
+    global visited_and_distance
+    v = -10
+    # Choosing the vertex with the minimum distance
+    for index in range(number_of_vertices):
+    if visited_and_distance[index][0] == 0 \
+        and (v < 0 or visited_and_distance[index][1] <= \
+        visited_and_distance[v][1]):
+        v = index
+    return v
+
+# Creating the graph as an adjacency matrix
+vertices = [[0, 1, 1, 0],
+            [0, 0, 1, 0],
+            [0, 0, 0, 1],
+            [0, 0, 0, 0]]
+edges =  [[0, 3, 4, 0],
+            [0, 0, 0.5, 0],
+            [0, 0, 0, 1],
+            [0, 0, 0, 0]]
+
+number_of_vertices = len(vertices[0])
+
+# The first element of the lists 
+# inside visited_and_distance 
+
+# denotes if the vertex has been visited.
+# The second element of the lists inside 
+# the visited_and_distance 
+# denotes the distance from the source.
+visited_and_distance = [[0, 0]]
+for i in range(number_of_vertices-1):
+    visited_and_distance.append([0, sys.maxsize])
+
+for vertex in range(number_of_vertices):
+    # Finding the next vertex to be visited.
+    to_visit = to_be_visited()
+    for neighbor_index in range(number_of_vertices):
+    # Calculating the new distance for all unvisited 
+    # neighbours
+    # of the chosen vertex.
+    if vertices[to_visit][neighbor_index] == 1 and \
+        visited_and_distance[neighbor_index][0] == 0:
+        new_distance = visited_and_distance[to_visit][1] \
+        + edges[to_visit][neighbor_index]
+        # Updating the distance of the neighbor 
+        # if its current distance
+        # is greater than the distance that has 
+        # just been calculated
+        if visited_and_distance[neighbor_index][1] > new_distance:
+        visited_and_distance[neighbor_index][1] = new_distance
+    # Visiting the vertex found earlier
+    visited_and_distance[to_visit][0] = 1
+
+i = 0 
+
+# Printing out the shortest distance from the 
+# source to each vertex       
+for distance in visited_and_distance:
+    print("The shortest distance of ",chr(ord('a') + i),\
+    " from the source vertex a is:",distance[1])
+    i = i + 1
+</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="post-resources">
+            <div class="post-resources-heading">
+                <h3><i class="bi bi-file-earmark-code"></i> Resources</h3>
+            </div>
+            <div class="post-resources-content">
+                <ul>
+                    <li><a href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" target="_blank">GeeksForGeeks</a></li>
+                    
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/prism.js"></script>
+    <script src="../../js/reload.js"></script>
+</body>
+
+</html>

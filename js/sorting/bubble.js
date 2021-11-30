@@ -3,11 +3,12 @@ let i = 0;
 let j = 0;
 let x = 0;
 let y = 0;
+let q = 60;
 
 // initial setup of the canvas
 function setup() {
   createCanvas(720, 400);
-  for(let i = 0;i<width/9;i++){
+  for(let i = 0;i<width/12;i++){
     values.push(random(height));
   }
 }
@@ -30,8 +31,9 @@ function bubbleSort() {
       y = j+1;
     }
     j++;
-    if(j>=values.length-1){
+    if(j>=q-1){
       j = 0;
+      q--;
     }
 }
 
@@ -47,6 +49,6 @@ function simulateSorting(){
       stroke(255, 255, 255);
       fill(12,23,133);
     }
-    rect(i*8 , height, 7, -values[i],0);
+    rect(i*12 , height, 10, -values[i],0);
    }
 }
