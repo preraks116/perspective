@@ -98,19 +98,10 @@
                     <strong>Quick Sort</strong> is a divide and conquer algorithm. It picks an element as pivot and
                     partitions the given array around the picked pivot. There are many different versions of quick sort.
                     Most of the times, it picks the first element as pivot, but there are many other possibilities.
-                    <br>
-                    <br>
-                    <strong>Worst Case Time Complexity</strong> of Quick Sort is <strong>O(n^2)</strong>.
-                    <br>
-                    <br>
-                    <strong>Average Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong>.
-                    <br>
-                    <br>
-                    <strong>Best Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong>.
-                    <br>
-                    <br>
-                    <strong>Space Complexity</strong> of Quick Sort is <strong>O(1)</strong>.
-                    <br>
+                </p>
+                <p>
+                    In the simulation that you see above, the green bars represent the unsorted list of numbers. The height of the bars corresponds to the value of the number in the list.
+                    The red bars represent the pivots that are used in the algorithm. The height of the red bars corresponds to the value of the pivot.
                 </p>
             </div>
         </div>
@@ -120,16 +111,17 @@
             </div>
             <div class="post-text-content">
                 <p>
-                    In computer science, quick sort (sometimes called partition-exchange sort) is an efficient sorting algorithm,
-                    serving as a systematic method for placing the elements of an array in order. Developed by Tony Hoare in 1959,
-                    with his work published in 1961, it is still a commonly used algorithm for sorting. When implemented well, it
-                    is about twice as fast as its main competitors, merge sort and heapsort.
+                    Quick Sort is an algorithm which is most commonly known as a divide and conquer algorithm.
                 </p>
                 <p>
-                    It works by choosing a pivot element (called the <i>pivot</i>), and then rearranging the elements of the array
-                    in such a way that all elements less than the pivot come before it, while all elements greater than the
-                    pivot come after it. This is repeated with the sub-arrays of elements less than and greater than the
-                    pivot. The implementation of quick sort is not recursive, but rather uses a divide and conquer strategy.
+                    The algorithm works as follows: It starts of by first selecting one of the entries in the array as a 'pivot' element, which is used as reference for comparison's sake. A pointer is initiated at the first element of the array, let us call it the 'left' pointer. Similarly a pointer is initiated at the last element of the array and we call this as the 'right' pointer. 
+                    
+                </p>
+                <p>
+                    We start moving the left pointer to the right by one element and the right pointer to the left by one element. When the value which the left pointer indicates is less than the pivot value, this process of moving the left pointer keeps happening till value is greater than or equal to pivot. Similarly, when the value which the right pointer indicates is greater than the pivot value, it's process also keeps happening till the value is less than or equal to the pivot.
+                </p>
+                <p>
+                    When the left pointer is less than or equal to the right pointer, the location of the elements at these two pointers is swapped. The process is restarted from the beginning if the pointers don't meet.
                 </p>
                 <p>
                     The algorithm can be summarized as follows:
@@ -140,10 +132,26 @@
                         greater than the pivot come after it</li>
                     <li>Recursively apply the above steps to the sub-arrays of elements less than and greater than the pivot</li>
                 </ul>
+            </div>
+        </div>
+        <div class="post-text">
+            <div class="post-text-heading">
+                <h3><i class="bi bi-clock"></i> Complexity</h3>
+            </div>
+            <div class="time-complexity-content">
+                <p><strong>Worst Case Time Complexity</strong> of Quick Sort is <strong>O(n<sup>2</sup>)</strong>.</p>
+                <!-- put these lines in p tags -->
                 <p>
-                    <i>The implementation of quick sort is not recursive, but rather uses a divide and conquer strategy.</i>
+                    <strong>Best Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong> when the array is already sorted.
                 </p>
-                
+                <p>
+                    <strong>Average Case Time Complexity</strong> of Quick Sort is <strong>O(n log n)</strong> when the array is randomly
+                    distributed.
+                </p>
+                <p>
+                    <strong>Space Complexity</strong> of Quick Sort is <strong>O(log n)</strong>
+                </p>
+            </div>
         </div>
         <div class="post-code">
             <div class="post-code-heading">
@@ -208,7 +216,6 @@ quickSort(arr, 0, n-1)
 print("Sorted array is:")
 for i in range(n):
     print("%d" % arr[i]),
-
                     </code></pre>
                 </div>
             </div>
@@ -219,9 +226,19 @@ for i in range(n):
             </div>
             <div class="post-resources-content">
                 <ul>
-                    <li><a href="https://www.geeksforgeeks.org/merge-sort/">GeeksForGeeks</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/merge-sort-set-1/">Merge Sort - Set 1</a></li>
-                    <li><a href="https://www.geeksforgeeks.org/merge-sort-set-2-a-nlogn-time-complexity/">Merge Sort - Set 2 (NLogN Time Complexity)</a></li>
+                    <li>
+                        <!-- link for wikipedia -->
+                        <a href="https://en.wikipedia.org/wiki/Quicksort" target="_blank">Wikipedia</a>
+                    </li>
+                    <li>
+                        <!-- link for geeksforgeeks -->
+                        <a href="https://www.geeksforgeeks.org/quick-sort/" target="_blank">GeeksforGeeks</a>
+                    </li>
+                    <li>
+                        <!-- link for cprogramming.com -->
+                        <a href="https://www.cprogramming.com/tutorial/computersciencetheory/quicksort.html" target="_blank">CProgramming.com</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

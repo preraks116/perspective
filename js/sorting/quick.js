@@ -1,9 +1,3 @@
-// QuickSort Visualization
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/143-quicksort.html
-// https://editor.p5js.org/codingtrain/sketches/vic6Qzo-j
-// https://youtu.be/eqo2LxRADhU
-
 let values = [];
 let w = 10;
 

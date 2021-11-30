@@ -110,8 +110,21 @@
                 <p>
                     The Dijkstra algorithm is a greedy algorithm that finds the shortest path between two nodes in a graph.
                     It is used to find the shortest path between two nodes in a graph.
-                    The algorithm is as follows:
+                    
                 </p>
+                <p>
+                    For example, we are given a directed or undirected weighted graph with n vertices and m edges. 
+                    We are also given a starting vertex s. We need to find the lengths of the shortest paths from a starting vertex S to all other vertices, and output the shortest paths themselves.
+                </p>
+                <p>
+                    We assume an initial provisional distance from the source node to each other node in the graph is infinity (until we check them later). We know that by default the source node’s distance to the source node is minimum (0) since there cannot be negative edge lengths. 
+Our source node looks at all of its neighbors and updates their provisional distance from the source node to be the edge length from the source node to that particular neighbor (plus 0). 
+                </p>
+                <p>
+                    Note that we HAVE to check every immediate neighbor. Next, the algorithm makes the greedy choice to next evaluate the node which has the shortest provisional distance to the source node. 
+We mark our source node as visited so we don’t return to it and move to the next node. 
+                </p>
+                <p><h4>The algorithm is as follows:</h4></p>
                 <ol>
                     <li>
                         <p>
@@ -268,8 +281,14 @@ for distance in visited_and_distance:
             <div class="post-resources-content">
                 <ul>
                     <li><a href="https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/" target="_blank">GeeksForGeeks</a></li>
-                    
-
+                    <li>
+                        <!-- link for wikipedia -->
+                        <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">Wikipedia</a>
+                    </li>
+                    <li>
+                        <!-- youtube -->
+                        <a href="https://www.youtube.com/watch?v=XB4MIexjvY0&t=346s&ab_channel=AbdulBari" target="_blank">A video on Dijkstra by Abdul Bari</a>
+                    </li>
 
                 </ul>
             </div>
@@ -278,5 +297,4 @@ for distance in visited_and_distance:
     <script src="../../js/prism.js"></script>
     <script src="../../js/reload.js"></script>
 </body>
-
 </html>

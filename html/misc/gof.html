@@ -95,7 +95,35 @@
             </div>
             <div class="post-sim-content">
                 <div class="post-sim-content-text">
+                    <p>
+                        As you can see, above is a simulation of the game of life. The simulation is a cellular automaton where the state of the board (array of cells) depends on the previous state of the board.
+                    </p>
+                    <p>
+                        You can some cells that were initially alive might not be alive anymore, but some groups of cells have seemed to have formed a stable pattern.
+                    </p>
+                    <p>
+                        <b>Some of the patterns that you can see are:</b>
+                    </p>
+                    <p>
+                        <ul>
+                            <li>
+                                <b>Block</b> : A square the consists of cells that are alive.
+                            </li>
+                            <li>
+                                <b>Beehive</b> : A pattern with 6 cells that are alive which looks slightly like a hexagon.
+                            </li>
+                            <li>
+                                <b>Boat</b> : A pattern with 5 cells that are alive which looks somewhat like a small fish. 
+                            </li>
+                            <li>
+                                <b>Blinker</b> : This is an oscillating pattern with period 2 which is essentially a line of 3 cells that are alive osciillating between vertical and horizontal. It looks like a plus because of how fast the oscillations are.
+                            </li>
+                            <li>
+                                <b>Tub</b> : This is a pattern with 4 cells that are alive which looks like a plus sign with a hole in the middle.
+                            </li>
+                        </ul>
 
+                    </p>
             </div>
         </div>
         <div class="post-text">
@@ -105,7 +133,17 @@
             <div class="post-text-content">
                 <p>
                     The Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970.
-                    The rules of the game are simple:
+                    
+                </p>
+
+                <p>
+                    It consists of a board of cells. Each cell is either alive or dead which represented by its color, white or black, respectively.
+                </p>
+                <p>
+                    At each stage, the board is updated based the previous state of the board.
+                </p>
+                <p>
+                    <b>The rules of the game are as follows:</b>
                 </p>
                 <ul>
                     <li>Any live cell with fewer than two live neighbours dies, as if caused by under-population.</li>
@@ -113,6 +151,9 @@
                     <li>Any live cell with more than three live neighbours dies, as if by overcrowding.</li>
                     <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
                 </ul>
+                <p>
+                    The initial pattern of the board is known as the seed of the board and each subsequent board permuatation is called a generation.
+                </p>
             </div>
         </div>
         <div class="post-text">
@@ -121,7 +162,7 @@
             </div>
             <div class="time-complexity-content">
                 <p>
-                    The time complexity of the algorithm is O(n^2).
+                    Let the number of cells be n. Then the time complexity of the algorithm is <b>O(n)</b> as the algorithm looks at each cells neighbours one by one do determine whether the cell is now alive or dead.
                 </p>
             </div>
         </div>
@@ -132,7 +173,82 @@
             <div class="post-code-content">
                 <div class="code-block">
                     <pre><code id="code" class="language-javascript">
+function make2DArray(cols, rows) {
+    let arr = new Array(cols);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = new Array(rows);
+    }
+    return arr;
+}
 
+let grid;
+let cols;
+let rows;
+let resolution = 10;
+
+function setup() {
+    createCanvas(720, 400);
+    cols = width / resolution;
+    rows = height / resolution;
+
+    grid = make2DArray(cols, rows);
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            grid[i][j] = floor(random(2));
+        }
+    }
+}
+
+function draw() {
+    background(0);
+
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            let x = i * resolution;
+            let y = j * resolution;
+            if (grid[i][j] == 1) {
+                fill(255);
+                stroke(0);
+                rect(x, y, resolution - 1, resolution - 1);
+            }
+        }
+    }
+
+    let next = make2DArray(cols, rows);
+
+    // Compute next based on grid
+    for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+            let state = grid[i][j];
+            // Count live neighbors!
+            let sum = 0;
+            let neighbors = countNeighbors(grid, i, j);
+
+            if (state == 0 && neighbors == 3) {
+                next[i][j] = 1;
+            } else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
+                next[i][j] = 0;
+            } else {
+                next[i][j] = state;
+            }
+        }
+    }
+
+    grid = next;
+}
+
+function countNeighbors(grid, x, y) {
+    let sum = 0;
+    for (let i = -1; i < 2; i++) {
+        for (let j = -1; j < 2; j++) {
+            let col = (x + i + cols) % cols;
+            let row = (y + j + rows) % rows;
+            sum += grid[col][row];
+        }
+    }
+    sum -= grid[x][y];
+    return sum;
+}
 </code></pre>
                 </div>
             </div>
@@ -143,12 +259,11 @@
             </div>
             <div class="post-resources-content">
                 <div class="post-resources-content-text">
-                    <p>
-                        <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia</a>
-                    </p>
-                    <p>
-                        <a href="https://www.youtube.com/watch?v=MwjsO6aniig&ab_channel=D%21NG">D!ng Video On Mandelbrot Set</a>
-                    </p>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wikipedia</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=C2vgICfQawE&t=222s&ab_channel=RationalAnimations">Conway's Game of Life on Youtube</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=R9Plq-D1gEk&ab_channel=Numberphile">Numberphile video on Game of Life</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

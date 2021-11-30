@@ -97,7 +97,10 @@
                 <div class="post-sim-content-text">
                     <p>
                         As you can see, there are three vertices present in the simulation above. Click anywhere inside the box to add a vertex to the graph.
-                        For every vertex that you add, a new MST will be generated and displayed. You can also right click on a vertex to delete it.
+                        For every vertex that you add, a new MST will be generated and displayed. 
+                    </p>
+                    <p>
+                        You can also right click on a vertex to delete it.
                     </p>
             </div>
         </div>
@@ -106,18 +109,30 @@
                 <h3><i class="bi bi-info-circle"></i> Explanation</h3>
             </div>
             <div class="post-text-content">
-                The <b>Prim's Algorithm</b> is a greedy algorithm that finds a minimum spanning tree (MST)
-                for a graph. It works by choosing the cheapest edge to add to the MST, and then adding it.
-                The algorithm is guaranteed to find a MST, but it may not be the MST with the minimum cost.
-                The algorithm is also known as the <b>Kruskal's Algorithm</b>.
-        </div>
+                <p>
+                    Prims Algorithm: Given a weighted, undirected graph G with n vertices and m edges, we want to find a spanning tree of a graph which connects all vertices and has the least weight (i.e. the sum of weights of edges is minimal).
+                    A spanning tree is a set of edges such that any vertex can reach any other by exactly one simple path.
+                    The spanning tree with the least weight is called a minimum spanning tree.
+                </p>
+                <p>
+                    The minimum spanning tree is built gradually by adding edges one at a time. At first the spanning tree consists only of a single vertex (chosen arbitrarily).
+                    Then the minimum weight edge outgoing from this vertex is selected and added to the spanning tree. After that the spanning tree already consists of two vertices. Now select and add the edge with the minimum weight that has one end in an already selected vertex (i.e. a vertex that is already part of the spanning tree), and the other end in an unselected vertex.
+                    And so on, i.e. every time we select and add the edge with minimal weight that connects one selected vertex with one unselected vertex.
+                    The process is repeated until the spanning tree contains all vertices(n-1 edges).
+                </p>
+
+            </div>
         <div class="post-text">
             <div class="post-text-heading">
-                <h3><i class="bi bi-clock"></i> Time Complexity</h3>
+                <h3><i class="bi bi-clock"></i> Complexity</h3>
             </div>
             <div class="time-complexity-content">
                 <p>
-                    <b>O(E log V)</b>
+                    This algorithm can be improved if we only look at one edge from each already selected vertex. For example we can sort the edges from each vertex in ascending order of their weights, and store a pointer to the first valid edge (i.e. an edge that goes to an non-selected vertex). Then after finding and selecting the minimal edge, we update the pointers. 
+                    
+                </p>
+                <p>
+                    This gives us a complexity of O(n<sup>2</sup>+m), and for sorting the edges an additional O(m log⁡n), which gives the complexity O(n<sup>2</sup>log⁡n) in the worst case.
                 </p>
             </div>
         </div>
@@ -129,7 +144,6 @@
                 <div class="code-block">
                     <pre><code id="code" class="language-python">
 # Prim's Algorithm in Python
-
 
 INF = 9999999
 # number of vertices in graph
@@ -184,11 +198,9 @@ while (no_edge < V - 1):
             <div class="post-resources-content">
                 <ul>
                     <li><a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Wikipedia - Prim's Algorithm</a></li>
-                </ul>
-                <ul>
+
                     <li><a href="https://www.geeksforgeeks.org/prims-algorithm-for-adjacency-list-representation-of-a-graph/">GeeksForGeeks - Prim's Algorithm</a></li>
-                </ul>
-                <ul>
+
                     <li><a href="https://www.programiz.com/dsa/prim-algorithm">Programiz</a></li>
                 </ul>
             </div>

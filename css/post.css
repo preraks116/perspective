@@ -32,7 +32,7 @@
 }
 
 .post-code-content{
-    width: 55%;
+    width: 59%;
     padding: 10px;
     background-color: rgb(31,32,34);
     border-radius: 10px;
@@ -86,4 +86,10 @@ transition: 0.5s;
 button:hover{
 background-color: white;
 color: rgb(0, 0, 0);
+}
+
+.post-resources-content a{
+    color: lawngreen;
+    font-weight: bold;
+    text-decoration: none;
 }

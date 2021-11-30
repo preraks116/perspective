@@ -26,7 +26,9 @@ function setup() {
 
 function draw() {
     background(0);
-
+    stroke(12, 23, 133);
+    noFill();
+    rect(0, 0, width - 1, height - 1);
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
             let x = i * resolution;

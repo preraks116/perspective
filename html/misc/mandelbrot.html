@@ -99,6 +99,10 @@
                         Here is a simulation of the Mandelbrot set slowly taking shape. With each frame, the number of iterations over which each point is given a color is increase from 1 to 30, and as
                         the number of iterations increases, the detail of the set increases.
                     </p>
+                    <p>
+                        The big shape that you see in the centre of the set is called the main cardioid. The cardioid is the shape that is the closest to the origin. To its left is the shape which is called the 
+                        main disk. 
+                    </p>
             </div>
         </div>
         <div class="post-text">
@@ -124,6 +128,13 @@
                 <p>
                     where z<sub>n</sub> is the value of z<sub>n</sub> at the nth iteration, c<sub>n</sub> is a complex number, and n is the number of iterations. 
                 </p>
+                <p>
+                    The output from this function is taken and put back into the function and this is done for a certain number of iterations. If the value of the output after the iterations continues to increase in value
+                    , then it is not a part of the Mandelbrot Set.
+                </p>
+                <p>
+                    If the output doesnt grow out of bounds as we continue to iterate, then it is a part of the Mandelbrot Set. 
+                </p>
             </div>
         </div>
         <div class="post-text">
@@ -131,7 +142,12 @@
                 <h3><i class="bi bi-clock"></i> Time Complexity</h3>
             </div>
             <div class="time-complexity-content">
-
+                <p>
+                    Let the total number of pixels be n and the number of maximum iterations be m. 
+                </p>
+                <p>
+                    Then the time complexity of the algorithm is O(n*m). This is because for each pixel, we have to iterate m times and then evaluate the output to check if its part of the set or not.
+                </p>
             </div>
         </div>
         <div class="post-code">
@@ -141,8 +157,10 @@
             <div class="post-code-content">
                 <div class="code-block">
                     <pre><code id="code" class="language-javascript">
-for (var i = 0; i < width; i++) {
+for (var i = 0; i < width; i++) { 
+    // here width is the width of the canvas
     for (var j = 0; j < height; j++) {
+        // here height is the height of the canvas
         //calculate the real and imaginary components
         var a = map(i - 70, 0, width, -2.5, 2.5);
         var b = map(j, 0, height, -2.5, 2.5);
@@ -185,12 +203,11 @@ for (var i = 0; i < width; i++) {
             </div>
             <div class="post-resources-content">
                 <div class="post-resources-content-text">
-                    <p>
-                        <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia</a>
-                    </p>
-                    <p>
-                        <a href="https://www.youtube.com/watch?v=MwjsO6aniig&ab_channel=D%21NG">D!ng Video On Mandelbrot Set</a>
-                    </p>
+                    <ul>
+                        <li><a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=MwjsO6aniig&ab_channel=D%21NG">D!ng Video On Mandelbrot Set</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=FFftmWSzgmk&ab_channel=Numberphile">Numberphile video on Mandelbrot Set</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

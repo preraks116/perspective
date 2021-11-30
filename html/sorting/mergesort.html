@@ -95,7 +95,11 @@
             </div>
             <div class="post-sim-content">
                 <p>
-
+                    The blue bars that you see above represent the unsorted list of numbers, where if one bar on the left is taller than another on the right, it means that the number on the left is larger than the number on the right.
+                </p>
+                <p>
+                    The green bars that you see below represent the sorted list of numbers. Since merge sort is a recursive algorithm, it will split the list into smaller lists until it reaches the base case, where it will then merge the smaller lists back together.
+                    You can see each of those small lists as sections of green bars which are being merged into the larger list.
                 </p>
             </div>
         </div>
@@ -105,27 +109,42 @@
             </div>
             <div class="post-text-content">
                 <p>
-                    <h3>Merge Sort</h3>
-                    <p>
-                        <h4>Steps</h4>
-                        <p>
-                            <ol>
-                                <li>Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).</li>
-                                <li>Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining.</li>
-                            </ol>
-                        </p>
-                        <p>
-                            <h4>Example</h4>
-                            <p>
-                                <ol>
-                                    <li>Divide the unsorted list into n sublists, each containing 1 element (a list of 1 element is considered sorted).</li>
-                                    <li>Repeatedly merge sublists to produce new sorted sublists until there is only 1 sublist remaining.</li>
-                                </ol>
-                            </p>
-                        </p>
-                    </p>
+                    Merge sort is a <b>Divide and Conquer</b> algorithm that splits the list into smaller lists until it reaches the base case, where it will then merge the smaller lists back together. 
+                    The algorithm is recursive, so it will split the list into smaller lists until it reaches the base case, where it will then merge the smaller lists back together.
                 </p>
-            
+                <p>
+                    We define the base case is when the list is only one element long.
+                </p>    
+                <p>
+                    The steps of the algorithm are:
+                </p>
+                <ol>
+                    <li>
+                        While the list is not one element long, split the list into two smaller lists.
+                    </li>
+                    <li>
+                        Split the list into two smaller lists. The split is done in the middle of the list.
+                    </li>
+                    <li>
+                        Then we will sort the smaller lists. This is where the function is called recursively.
+                    </li>
+                    <li>
+                        Merge the sorted lists. This involves comparing elements from both the lists one by one and placing the smaller element in the sorted list one by one.
+                    </li>
+                </ol>
+        </div>
+        <div class="post-text">
+            <div class="post-text-heading">
+                <h3><i class="bi bi-clock"></i> Complexity</h3>
+            </div>
+            <div class="time-complexity-content">
+                <p>
+                    The time complexity of merge sort is <b>O(n log n)</b>, where <b>n</b> is the number of elements in the list.
+                </p>
+                <p>
+                    The space complexity of merge sort is <b>O(n)</b>, where <b>n</b> is the number of elements in the list.
+                </p>
+            </div>
         </div>
         <div class="post-code">
             <div class="post-code-heading">
@@ -134,7 +153,63 @@
             <div class="post-code-content">
                 <div class="code-block">
                     <pre><code id="code" class="language-python">
+# MergeSort in Python
 
+def mergeSort(array):
+    if len(array) > 1:
+
+        #  r is the point where the array is divided 
+        # into two subarrays
+        r = len(array)//2
+        L = array[:r]
+        M = array[r:]
+
+        # Sort the two halves
+        mergeSort(L)
+        mergeSort(M)
+
+        i = j = k = 0
+
+        # Until we reach either end of either L or M, 
+        # pick larger among
+
+        # elements L and M and place them in the 
+        # correct position at A[p..r]
+        while i < len(L) and j < len(M):
+            if L[i] < M[j]:
+                array[k] = L[i]
+                i += 1
+            else:
+                array[k] = M[j]
+                j += 1
+            k += 1
+
+        # When we run out of elements in either L or M,
+        # pick up the remaining elements and put in A[p..r]
+        while i < len(L):
+            array[k] = L[i]
+            i += 1
+            k += 1
+
+        while j < len(M):
+            array[k] = M[j]
+            j += 1
+            k += 1
+
+
+# Print the array
+def printList(array):
+    for i in range(len(array)):
+        print(array[i], end=" ")
+    print()
+
+
+array = [6, 5, 12, 10, 9, 1]
+
+mergeSort(array)
+
+print("Sorted array is: ")
+printList(array)
 </code></pre>
                 </div>
             </div>
@@ -145,7 +220,24 @@
             </div>
             <div class="post-resources-content">
                 <ul>
-
+                    <li><a href="https://www.geeksforgeeks.org/merge-sort/">
+                            GeeksForGeeks</a>
+                    </li>
+                    <li>
+                        <a href="https://www.geeksforgeeks.org/merge-sort-set-1/">
+                            Merge Sort Set 1
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Merge_sort">
+                           Wikipedia
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.programiz.com/python-programming/merge-sort">
+                        Programiz
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
